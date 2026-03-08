@@ -16,7 +16,11 @@
         <a-input v-model="form.userName" placeholder="请输入用户名" />
       </a-form-item>
 
-      <a-form-item field="userPassword" tooltip="密码不少于 8 位" label="密码">
+      <a-form-item
+        field="userPassword"
+        :tooltip="PASSWORD_RULE_HINT"
+        label="密码"
+      >
         <a-input-password
           v-model="form.userPassword"
           placeholder="请输入密码"
@@ -44,6 +48,10 @@ import { reactive } from "vue";
 import { UserControllerService, UserRegisterRequest } from "../../../generated";
 import message from "@arco-design/web-vue/es/message";
 import { useRouter } from "vue-router";
+import {
+  PASSWORD_RULE_HINT,
+  validatePasswordByRegisterRule,
+} from "@/utils/passwordRules";
 
 /**
  * 表单信息
@@ -61,13 +69,19 @@ const router = useRouter();
  * 提交表单
  */
 const handleSubmit = async () => {
-  if (!form.userAccount || !form.userPassword || !form.checkPassword) {
+  if (
+    !form.userAccount ||
+    !form.userName ||
+    !form.userPassword ||
+    !form.checkPassword
+  ) {
     message.error("请填写完整信息");
     return;
   }
 
-  if (form.userPassword.length < 8) {
-    message.error("密码不少于 8 位");
+  const passwordError = validatePasswordByRegisterRule(form.userPassword);
+  if (passwordError) {
+    message.error(passwordError);
     return;
   }
 
