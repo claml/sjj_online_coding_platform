@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6f941294-6a12-4e56-aeb0-44f8eff37dcd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/oj-frontend/.browserslistrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/babel.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/src/access/accessEnum.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/src/access/checkAccess.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/src/assets/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/src/components/GlobalHeader.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/src/components/HelloWorld.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/src/layouts/BasicLayout.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/src/router/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/src/router/routes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/src/shims-vue.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/src/store/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/src/store/user.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/src/views/AboutView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/src/views/AdminView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/src/views/HomeView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/src/views/NoAuthView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/src/views/user/UserLoginView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/src/views/user/UserRegisterView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/src/vue-router.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-frontend/vue.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/OnlineLearningApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/controller/AnalyticsController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/controller/CommunityController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/controller/CourseController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/controller/ExerciseController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/controller/LearningController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/controller/NotificationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/model/ApplicationDomain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/model/CommunityQuestion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/model/Course.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/model/CourseResource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/model/DifficultyLevel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/model/Exam.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/model/Exercise.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/model/LearningProgress.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/model/LearningReport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/model/NotificationChannel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/model/NotificationPreference.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/model/ProgrammingLanguage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/model/QuestionStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/model/QuestionType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/model/ResourceType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/model/StudyNote.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/model/UserProfile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/model/UserRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/service/AnalyticsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/service/CommunityService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/service/CourseService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/service/DataInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/service/ExerciseService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/service/LearningService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/service/NotificationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/java/com/example/learningapp/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OJJ/src/main/resources/application.properties" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="37oiptr269xlyviyQIJraN81MUl" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.138" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.29346.138" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6f941294-6a12-4e56-aeb0-44f8eff37dcd" name="Changes" comment="" />
+      <created>1767576012387</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1767576012387</updated>
+      <workItem from="1767576013560" duration="14000" />
+      <workItem from="1767576574762" duration="3000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="2053927f-cb1e-4efa-ae77-28b02a1378bf" name="Ubuntu">
+        <fileTransfer rootFolder="/home/sjj/online_learning_platform" accessType="SFTP" host="192.168.33.128" port="22" sshConfigId="c9478d99-5937-40e7-9de2-3e97467c819e" sshConfig="sjj@192.168.33.128:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
