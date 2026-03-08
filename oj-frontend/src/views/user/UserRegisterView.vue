@@ -12,6 +12,10 @@
         <a-input v-model="form.userAccount" placeholder="请输入账号" />
       </a-form-item>
 
+      <a-form-item field="userName" label="用户名">
+        <a-input v-model="form.userName" placeholder="请输入用户名" />
+      </a-form-item>
+
       <a-form-item field="userPassword" tooltip="密码不少于 8 位" label="密码">
         <a-input-password
           v-model="form.userPassword"
@@ -46,6 +50,7 @@ import { useRouter } from "vue-router";
  */
 const form = reactive({
   userAccount: "",
+  userName: "",
   userPassword: "",
   checkPassword: "",
 } as UserRegisterRequest);
@@ -61,7 +66,7 @@ const handleSubmit = async () => {
     return;
   }
 
-  if (form.userPassword.length < 8 || form.checkPassword.length < 8) {
+  if (form.userPassword.length < 8) {
     message.error("密码不少于 8 位");
     return;
   }
