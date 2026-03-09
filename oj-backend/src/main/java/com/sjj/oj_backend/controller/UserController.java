@@ -11,6 +11,7 @@ import com.sjj.oj_backend.constant.UserConstant;
 import com.sjj.oj_backend.exception.BusinessException;
 import com.sjj.oj_backend.exception.ThrowUtils;
 import com.sjj.oj_backend.model.dto.user.UserAddRequest;
+import com.sjj.oj_backend.model.dto.user.UserAvatarUpdateRequest;
 import com.sjj.oj_backend.model.dto.user.UserLoginRequest;
 import com.sjj.oj_backend.model.dto.user.UserQueryRequest;
 import com.sjj.oj_backend.model.dto.user.UserRegisterRequest;
@@ -298,12 +299,27 @@ public class UserController {
     // endregion
 
     /**
-     * 更新个人信息
+     * 更新当前登录用户头像
      *
-     * @param userUpdateMyRequest
-     * @param request
-     * @return
+     * @param userAvatarUpdateRequest 头像请求
+     * @param request                 请求
+     * @return 是否成功
      */
+    @PostMapping("/avatar")
+    public BaseResponse<Boolean> updateMyAvatar(@RequestBody UserAvatarUpdateRequest userAvatarUpdateRequest,
+            HttpServletRequest request) {
+        if (userAvatarUpdateRequest == null || StringUtils.isBlank(userAvatarUpdateRequest.getUserAvatar())) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "头像地址不能为空");
+        }
+        User loginUser = userService.getLoginUser(request);
+        User user = new User();
+        user.setId(loginUser.getId());
+        user.setUserAvatar(userAvatarUpdateRequest.getUserAvatar().trim());
+        boolean result = userService.updateById(user);
+        ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR);
+        return ResultUtils.success(true);
+    }
+
     @PostMapping("/update/my")
     public BaseResponse<Boolean> updateMyUser(@RequestBody UserUpdateMyRequest userUpdateMyRequest,
             HttpServletRequest request) {
