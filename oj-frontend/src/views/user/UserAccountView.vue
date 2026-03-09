@@ -200,9 +200,6 @@
               show-word-limit
               allow-clear
             />
-            <p class="profile-count">
-              {{ profileLength }} / {{ profileMaxLength }}
-            </p>
           </div>
 
           <div class="dialog-actions">
@@ -274,8 +271,6 @@ const profileMaxLength = 500;
 const profileForm = reactive({
   userProfile: "",
 });
-
-const profileLength = computed(() => profileForm.userProfile.length);
 
 const roleTag = computed(() => {
   switch (userInfo.userRole) {
@@ -721,13 +716,6 @@ onMounted(() => {
 :deep(.dialog-textarea .arco-textarea-wrapper.arco-textarea-focus) {
   border-color: #5b8ff9;
   box-shadow: 0 0 0 3px rgba(91, 143, 249, 0.18);
-}
-
-.profile-count {
-  margin: 8px 0 0;
-  text-align: right;
-  color: #667085;
-  font-size: 12px;
 }
 
 .dialog-actions {
