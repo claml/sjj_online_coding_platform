@@ -44,7 +44,7 @@ public class FileServiceImpl implements FileService {
             Path targetPath = AVATAR_UPLOAD_DIR.resolve(fileName).normalize();
             Files.copy(multipartFile.getInputStream(), targetPath, StandardCopyOption.REPLACE_EXISTING);
             return ServletUriComponentsBuilder.fromCurrentContextPath()
-                    .path("/api/file/avatar/")
+                    .path("/file/avatar/")
                     .path(fileName)
                     .toUriString();
         } catch (IOException e) {
