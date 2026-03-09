@@ -287,4 +287,28 @@ export class UserControllerService {
             },
         });
     }
+    /**
+     * updateMyAvatar
+     * @param requestBody requestBody
+     * @returns BaseResponse_boolean_ OK
+     * @returns any Created
+     * @throws ApiError
+     */
+    public static updateMyAvatarUsingPost(
+      requestBody: {
+          userAvatar?: string;
+      },
+    ): CancelablePromise<BaseResponse_boolean_ | any> {
+        return __request(OpenAPI, {
+            method: 'POST',
+            url: '/api/user/avatar',
+            body: requestBody,
+            errors: {
+                401: `Unauthorized`,
+                403: `Forbidden`,
+                404: `Not Found`,
+            },
+        });
+    }
+
 }

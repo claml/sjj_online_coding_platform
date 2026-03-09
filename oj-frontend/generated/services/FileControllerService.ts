@@ -35,4 +35,28 @@ export class FileControllerService {
             },
         });
     }
+    /**
+     * uploadAvatar
+     * @param file file
+     * @returns BaseResponse_string_ OK
+     * @returns any Created
+     * @throws ApiError
+     */
+    public static uploadAvatarUsingPost(
+      file: Blob,
+    ): CancelablePromise<BaseResponse_string_ | any> {
+        return __request(OpenAPI, {
+            method: 'POST',
+            url: '/api/file/upload/avatar',
+            formData: {
+                'file': file,
+            },
+            errors: {
+                401: `Unauthorized`,
+                403: `Forbidden`,
+                404: `Not Found`,
+            },
+        });
+    }
+
 }

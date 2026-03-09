@@ -196,9 +196,6 @@
               show-word-limit
               allow-clear
             />
-            <p class="profile-count">
-              {{ profileLength }} / {{ profileMaxLength }}
-            </p>
           </div>
 
           <div class="dialog-actions">
@@ -222,7 +219,10 @@ import { computed, onMounted, reactive, ref } from "vue";
 import { Message } from "@arco-design/web-vue";
 import { IconClose, IconEdit, IconLeft } from "@arco-design/web-vue/es/icon";
 import { useRouter } from "vue-router";
-import { UserControllerService } from "../../../generated";
+import {
+  FileControllerService,
+  UserControllerService,
+} from "../../../generated";
 import {
   PASSWORD_RULE_HINT,
   validatePasswordByRegisterRule,
@@ -270,8 +270,6 @@ const profileMaxLength = 500;
 const profileForm = reactive({
   userProfile: "",
 });
-
-const profileLength = computed(() => profileForm.userProfile.length);
 
 const roleTag = computed(() => {
   switch (userInfo.userRole) {
@@ -343,14 +341,20 @@ const handleAvatarFileChange = async (event: Event) => {
   }
 
   try {
-    // 预留上传头像接口位置，可替换为真实上传逻辑
-    // 示例：const uploadRes = await UserControllerService.uploadUserAvatarUsingPost(file)
-    const localPreviewUrl = URL.createObjectURL(file);
-    userInfo.userAvatar = localPreviewUrl;
-
-    // 预留更新头像接口位置
-    // await UserControllerService.updateMyUserUsingPost({ userAvatar: uploadRes.data.url })
-
+    const uploadRes = await FileControllerService.uploadAvatarUsingPost(file);
+    if (uploadRes.code !== 0 || !uploadRes.data) {
+      Message.error(uploadRes.message || "头像上传失败");
+      return;
+    }
+    const avatarUrl = uploadRes.data;
+    const updateRes = await UserControllerService.updateMyAvatarUsingPost({
+      userAvatar: avatarUrl,
+    });
+    if (updateRes.code !== 0) {
+      Message.error(updateRes.message || "头像保存失败");
+      return;
+    }
+    userInfo.userAvatar = avatarUrl;
     Message.success("头像上传成功");
   } catch (error: unknown) {
     const errorMessage =
@@ -716,13 +720,6 @@ onMounted(() => {
 :deep(.dialog-textarea .arco-textarea-wrapper.arco-textarea-focus) {
   border-color: #5b8ff9;
   box-shadow: 0 0 0 3px rgba(91, 143, 249, 0.18);
-}
-
-.profile-count {
-  margin: 8px 0 0;
-  text-align: right;
-  color: #667085;
-  font-size: 12px;
 }
 
 .dialog-actions {
