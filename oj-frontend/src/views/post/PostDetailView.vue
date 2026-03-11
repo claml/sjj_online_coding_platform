@@ -133,7 +133,6 @@ import axios from "axios";
 import store from "@/store";
 import ACCESS_ENUM from "@/access/accessEnum";
 import {
-  PostControllerService,
   PostFavourControllerService,
   PostThumbControllerService,
 } from "../../../generated";
@@ -152,7 +151,8 @@ const commentList = ref<any[]>([]);
 const commentTotal = ref(0);
 const commentInput = ref("");
 
-const postId = computed(() => String(route.params.id || "").trim());
+const postId = computed(() => String(route.params.id ?? "").trim());
+
 const isValidPostId = computed(() => /^\d+$/.test(postId.value));
 
 const parseStringArray = (rawValue: unknown): string[] => {
@@ -229,7 +229,7 @@ const goDiscussion = () => {
 const loadPostDetail = async () => {
   if (!isValidPostId.value) {
     loadError.value = true;
-    loadErrorMessage.value = "帖子参数错误，请返回讨论页重试";
+    loadErrorMessage.value = "帖子 id 无效";
     return;
   }
   loading.value = true;
@@ -250,9 +250,11 @@ const loadPostDetail = async () => {
       message.error(res.message || "帖子加载失败");
     }
   } catch (error) {
+    const errorMessage =
+      (error as any)?.response?.data?.message || "帖子加载失败，请稍后重试";
     loadError.value = true;
-    loadErrorMessage.value = "帖子加载失败，请稍后重试";
-    message.error("帖子加载失败");
+    loadErrorMessage.value = errorMessage;
+    message.error(errorMessage);
   } finally {
     loading.value = false;
   }
@@ -347,7 +349,7 @@ const confirmDeletePost = () => {
       status: "danger",
     },
     onOk: async () => {
-      const res = await PostControllerService.deletePostUsingPost({
+      const { data: res } = await axios.post("/api/post/delete", {
         id: postId.value as any,
       });
       if (res.code === 0) {

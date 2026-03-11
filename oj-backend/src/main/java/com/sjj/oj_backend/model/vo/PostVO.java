@@ -1,5 +1,7 @@
 package com.sjj.oj_backend.model.vo;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import cn.hutool.json.JSONUtil;
 import com.sjj.oj_backend.model.entity.Post;
 import java.io.Serializable;
@@ -20,6 +22,7 @@ public class PostVO implements Serializable {
     /**
      * id
      */
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long id;
 
     /**
@@ -55,6 +58,7 @@ public class PostVO implements Serializable {
     /**
      * 创建用户 id
      */
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long userId;
 
     /**
