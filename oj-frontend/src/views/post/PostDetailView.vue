@@ -235,11 +235,12 @@ const loadPostDetail = async () => {
   loading.value = true;
   loadError.value = false;
   try {
-    const { data: res } = await axios.get("/api/post/get/vo", {
+    const { data } = await axios.get("/api/post/get/vo", {
       params: {
         id: postId.value,
       },
     });
+    const res = data;
     if (res.code === 0 && res.data) {
       postDetail.value = normalizePostDetail(res.data);
       await loadComments();
@@ -349,7 +350,7 @@ const confirmDeletePost = () => {
     },
     onOk: async () => {
       const { data: res } = await axios.post("/api/post/delete", {
-        id: postId.value,
+        id: postId.value as any,
       });
       if (res.code === 0) {
         message.success("删除成功");
