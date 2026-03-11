@@ -1,5 +1,7 @@
 package com.sjj.oj_backend.model.vo;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
@@ -16,6 +18,7 @@ public class UserVO implements Serializable {
     /**
      * id
      */
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long id;
 
     /**

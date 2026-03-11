@@ -133,7 +133,6 @@ import axios from "axios";
 import store from "@/store";
 import ACCESS_ENUM from "@/access/accessEnum";
 import {
-  PostControllerService,
   PostFavourControllerService,
   PostThumbControllerService,
 } from "../../../generated";
@@ -152,7 +151,9 @@ const commentList = ref<any[]>([]);
 const commentTotal = ref(0);
 const commentInput = ref("");
 
-const postId = computed(() => Number(route.params.id));
+const postId = computed(() => String(route.params.id ?? "").trim());
+
+const isValidPostId = computed(() => /^\d+$/.test(postId.value));
 
 const parseStringArray = (rawValue: unknown): string[] => {
   if (!rawValue) {
@@ -226,14 +227,19 @@ const goDiscussion = () => {
 };
 
 const loadPostDetail = async () => {
-  if (!postId.value || postId.value <= 0) {
+  if (!isValidPostId.value) {
     loadError.value = true;
+    loadErrorMessage.value = "帖子 id 无效";
     return;
   }
   loading.value = true;
   loadError.value = false;
   try {
-    const res = await PostControllerService.getPostVoByIdUsingGet(postId.value);
+    const { data: res } = await axios.get("/api/post/get/vo", {
+      params: {
+        id: postId.value,
+      },
+    });
     if (res.code === 0 && res.data) {
       postDetail.value = normalizePostDetail(res.data);
       await loadComments();
@@ -243,9 +249,11 @@ const loadPostDetail = async () => {
       message.error(res.message || "帖子加载失败");
     }
   } catch (error) {
+    const errorMessage =
+      (error as any)?.response?.data?.message || "帖子加载失败，请稍后重试";
     loadError.value = true;
-    loadErrorMessage.value = "帖子加载失败，请稍后重试";
-    message.error("帖子加载失败");
+    loadErrorMessage.value = errorMessage;
+    message.error(errorMessage);
   } finally {
     loading.value = false;
   }
@@ -304,7 +312,7 @@ const doThumb = async () => {
     return;
   }
   const res = await PostThumbControllerService.doThumbUsingPost({
-    postId: postId.value,
+    postId: postId.value as any,
   });
   if (res.code === 0) {
     postDetail.value.thumbNum =
@@ -320,7 +328,7 @@ const doFavour = async () => {
     return;
   }
   const res = await PostFavourControllerService.doPostFavourUsingPost({
-    postId: postId.value,
+    postId: postId.value as any,
   });
   if (res.code === 0) {
     postDetail.value.favourNum =
@@ -340,7 +348,7 @@ const confirmDeletePost = () => {
       status: "danger",
     },
     onOk: async () => {
-      const res = await PostControllerService.deletePostUsingPost({
+      const { data: res } = await axios.post("/api/post/delete", {
         id: postId.value,
       });
       if (res.code === 0) {
